@@ -2,17 +2,19 @@ package com.estacaojr10.api.Entities.PaymentMethod;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public enum PaymentMethod {
-    CreditCard(1, "Cartão de Credito"),
-    DebitCard(2, "Cartão de Debito"),
+    Crédito(1, "Cartão de Credito"),
+    Debito(2, "Cartão de Debito"),
     Pix(3, "Pix"),
-    Invoice(4, "Boleto"),
+    Boleto(4, "Boleto"),
     Gympass(5, "Gympass"),
     Totalpass(6,"Totalpass"),
-    Cash(7,"Dinheiro");
+    Dinheiro(7,"Dinheiro");
 
     private int id;
     private String description;
