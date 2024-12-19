@@ -22,10 +22,6 @@ public class LoginController {
     @PostMapping("")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
         Optional<LoginResponse> loginResponse = userServices.findByEmailAndPassword(request.email(), request.password());
-
-        if (loginResponse.isPresent())
-            return ResponseEntity.ok(loginResponse.get());
-        else
-            return ResponseEntity.badRequest().build();
+        return loginResponse.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.badRequest().build());
     }
 }
